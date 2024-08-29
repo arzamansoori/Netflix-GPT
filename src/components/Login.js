@@ -28,17 +28,18 @@ const Login = () => {
             {(!isSignInForm) && <input
               type="text"
               placeholder="Full Name"
-              className="p-3 px-5 my-4 text-lg text-inherit border-inherit border rounded-md bg-black bg-opacity-70"
+              className="p-3 px-5 my-4 text-lg text-white border-inherit border rounded-md bg-black bg-opacity-70"
             />}
             <input
               type="text"
               placeholder="Email Address"
-              className="p-3 px-5 my-4 text-lg text-inherit border-inherit border rounded-md bg-black bg-opacity-70"
+              className="p-3 px-5 my-4 text-lg text-white border-inherit border rounded-md bg-black bg-opacity-70"
             />
             <input
               type="password"
               placeholder="Password"
-              className="p-3 px-5 my-2 text-lg text-inherit border-inherit border rounded-md bg-black bg-opacity-70"
+              className="p-3 px-5 my-2 text-lg text-white border-inherit border rounded-md bg-black bg-opacity-70"
+              
             />
             <button className="p-2 my-2 bg-red-600 rounded-md w-[100%] text-white font-semibold">
             {isSignInForm ? "Sign In" : "Sign Up"}
