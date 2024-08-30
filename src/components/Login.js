@@ -8,7 +8,6 @@ const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
 
-  const fullName = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -17,10 +16,7 @@ const Login = () => {
   }
 
   const validateFields = () =>{
-    // console.log(emailCurrValue);
-    // console.log(passwordCurrValue);
-
-    const errMessage = validateFormFields(fullName.current.value, email.current.value, password.current.value);
+    const errMessage = validateFormFields(email.current.value, password.current.value);
     setErrorMessage(errMessage);
   }
 
@@ -40,7 +36,6 @@ const Login = () => {
                 </h1>
             </div>
             {(!isSignInForm) && <input
-             ref={fullName}
               type="text"
               placeholder="Full Name"
               className="p-3 px-5 my-4 text-lg text-white border-inherit border rounded-md bg-black bg-opacity-70"
