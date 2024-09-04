@@ -19,12 +19,14 @@ const Login = () => {
 
   const validateFields = () => {
     //check if not valid
-    const errMessage = validateFormFields(
-      email.current.value,
-      password.current.value
-    );
-    setErrorMessage(errMessage);
-    if (errMessage) return;
+    if(!isSignInForm){
+      const errMessage = validateFormFields(
+        email.current.value,
+        password.current.value
+      );
+      setErrorMessage(errMessage);
+      if (errMessage) return;
+    }
 
     //check if valid
     if (!isSignInForm) {
@@ -60,7 +62,10 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           if (errorCode === "auth/invalid-credential") {
-            setErrorMessage("Password or Email is incorrect.");
+            setErrorMessage("Password or Email doesn't exist or incorrect.");
+          }
+          else if(errorCode === "auth/invalid-email") {
+            setErrorMessage("Email is invalid");
           }
           else {
             setErrorMessage(errorMessage);
