@@ -14,7 +14,7 @@
 - Create Signup Accunt
 - Implement Sign in user api 
 - Handle the error message with meaningful error message for the use
-- 
+- Setup Redux Store
 
 
 ## Live link for the project

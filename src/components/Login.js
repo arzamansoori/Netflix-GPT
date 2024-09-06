@@ -62,7 +62,7 @@ const Login = () => {
           const errorCode = error.code;
           const errorMessage = error.message;
           if (errorCode === "auth/invalid-credential") {
-            setErrorMessage("Password or Email doesn't exist or incorrect.");
+            setErrorMessage("Email or Password doesn't exist or incorrect.");
           }
           else if(errorCode === "auth/invalid-email") {
             setErrorMessage("Email is invalid");
