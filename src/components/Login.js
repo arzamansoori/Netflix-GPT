@@ -6,12 +6,17 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../redux/userSlice";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   const [errorMessage, setErrorMessage] = useState(null);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
+  const name = useRef(null);
   const email = useRef(null);
   const password = useRef(null);
 
@@ -21,6 +26,7 @@ const Login = () => {
 
   const validateFields = () => {
     //check if not valid
+    //Sign up form
     if(!isSignInForm){
       const errMessage = validateFormFields(
         email.current.value,
@@ -41,13 +47,28 @@ const Login = () => {
         .then((userCredential) => {
           // Signed up
           const user = userCredential.user;
-          navigate("/browse");
+          updateProfile(user, {
+            displayName: name.current.value, photoURL: "https://occ-0-5690-3662.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABe3AS8xWNNmm8HlokLrmgIPqxgDohbraAUmm3dQrgmRf7U13AMm-4aXXkLFYD4lyDg6bNvqt_2Lc8cdtEM9Y2n3TDYTrXqQ.png?r=b39"
+          }).then(() => {
+            // Profile updated!
+            //dispatch an action to update the store
+            const { uid, email, displayName, photoURL } = auth.currentUser;
+            dispatch(addUser({ uid: uid, email: email, displayName: displayName, photoURL: photoURL}));
+            navigate("/browse");
+          }).catch((error) => {
+            
+          });
           console.log(user);
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
+          if (errorCode === "auth/email-already-in-use") {
+            setErrorMessage("User already exist.");
+          }
+          else {
+            setErrorMessage(errorMessage);
+          }
           console.log(errorCode + "-" + errorMessage);
         });
     } else {
@@ -101,6 +122,7 @@ const Login = () => {
             </div>
             {!isSignInForm && (
               <input
+                ref={name}
                 type="text"
                 placeholder="Full Name"
                 className="p-3 px-5 my-4 text-lg text-white border-inherit border rounded-md bg-black bg-opacity-70"

@@ -1,12 +1,10 @@
 import React from "react";
+import Header from "./Header";
+//import { logo_url } from "../utils/images";
 
 const Browse = () => {
   return (
-    <div className="grid h-screen place-items-center">
-      <div>
-        Browse
-      </div>
-    </div>
+    <Header />
   );
 };
 

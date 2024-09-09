@@ -15,6 +15,10 @@
 - Implement Sign in user api 
 - Handle the error message with meaningful error message for the use
 - Setup Redux Store
+- useNavigate Hook to navigate to browse page once the login is successfull
+- Sign out feature (Firebase API)
+- Update Profile of Redux store
+- Fetch from TMDB movies
 
 
 ## Live link for the project
