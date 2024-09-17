@@ -58,7 +58,7 @@ const Header = () => {
             alt="User_img"
             className="w-7 h-7 mr-1"
           ></img>
-          <button className="font-bold text-black" onClick={toggleSignOut}>
+          <button className="font-bold text-white" onClick={toggleSignOut}>
             (Sign Out)
           </button>
         </div>
