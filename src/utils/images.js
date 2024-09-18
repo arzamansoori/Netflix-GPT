@@ -5,4 +5,4 @@ export const bg_url = "https://assets.nflxext.com/ffe/siteui/vlv3/36a4db5b-dec2-
 
 export const userImg_url = "https://occ-0-5690-3662.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABe3AS8xWNNmm8HlokLrmgIPqxgDohbraAUmm3dQrgmRf7U13AMm-4aXXkLFYD4lyDg6bNvqt_2Lc8cdtEM9Y2n3TDYTrXqQ.png?r=b39";
 
-export const CDN_URL = "https://image.tmdb.org/t/p/w200";
+export const CDN_URL = "https://image.tmdb.org/t/p/w500";
