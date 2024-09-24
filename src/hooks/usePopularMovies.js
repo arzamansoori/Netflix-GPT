@@ -12,7 +12,6 @@ const usePopularMovies = () => {
       API_OPTIONS
     );
     const json = await data.json();
-    console.log("API data", json.results);
     //this will add movies in the redux store
     dispatch(addPopularMovies(json.results));
   };

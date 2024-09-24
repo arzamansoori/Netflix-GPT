@@ -56,7 +56,6 @@ const Login = () => {
           }).catch((error) => {
             
           });
-          console.log(user);
         })
         .catch((error) => {
           const errorCode = error.code;
