@@ -5,7 +5,7 @@ import { auth } from "../utils/firebase";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../redux/userSlice";
-import { toggleGPTSearchView } from "../redux/gptSlice";
+import { removeGPTMovies, toggleGPTSearchView } from "../redux/gptSlice";
 import { SUPPORTED_LANGUAGES } from "../utils/constants";
 import { changeLanguage } from "../redux/configSlice";
 import languageConstants from "../utils/languageConstants";
@@ -56,6 +56,7 @@ const Header = () => {
 
   const handleGPTSearchClick = () => {
     dispatch(toggleGPTSearchView());
+    dispatch(removeGPTMovies());
   };
 
   const toggleChangeLanguage = (e) => {
