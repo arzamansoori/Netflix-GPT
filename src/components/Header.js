@@ -70,7 +70,7 @@ const Header = () => {
         <div className="flex items-center mb-5">
           { showGPTSearch && 
           (<select
-            className="mr-3 bg-red-800 text-white p-1 cursor-pointer rounded"
+            className="mr-3 bg-red-800 text-white p-1 font-semibold cursor-pointer rounded"
             onChange={toggleChangeLanguage}
           >
             {SUPPORTED_LANGUAGES.map((lang) => (
@@ -81,10 +81,11 @@ const Header = () => {
           </select>)
           }
           <button
-            className="bg-red-800 p-2 text-sm rounded-lg bg-opacity-90 text-white mr-3 hover:bg-opacity-75"
+            className="bg-red-800 p-2 font-semibold text-sm rounded-lg bg-opacity-90 text-white mr-3 hover:bg-opacity-75"
+            //className="bg-white bg-opacity-30 text-white px-2 py-2 rounded-lg hover:bg-opacity-20   mr-3"
             onClick={handleGPTSearchClick}
           >
-            {showGPTSearch ? languageConstants[lang]?.homePage : "🔎 GPTSearch"}
+            {showGPTSearch ? languageConstants[lang]?.homePage : "🔎 GPT Search"}
           </button>
           <img
             src={user.photoURL}
@@ -92,7 +93,7 @@ const Header = () => {
             className="w-7 h-7 mr-1"
           ></img>
           {showGPTSearch ? (
-            <button className="font-bold text-red-800" onClick={toggleSignOut}>
+            <button className="font-bold text-white" onClick={toggleSignOut}>
               {(languageConstants[lang]?.signOut)}
             </button>
           ) : (
