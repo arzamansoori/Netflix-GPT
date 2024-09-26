@@ -1,15 +1,18 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import languageConstants from "../utils/languageConstants";
 import { useRef } from "react";
 //import openai from "../utils/openai";
 import genAI from "../utils/geminiai";
 import { API_OPTIONS } from "../utils/constants";
+import { addGPTMoviesResults } from "../redux/gptSlice";
 
 const GPTSearchBar = () => {
+  const dispatch = useDispatch()
   const lang = useSelector((store) => store.config.lang);
   const searchText = useRef(null);
 
   const searchMovieTMDB = async (movie) => {
+    //searching movie in tmdb database
     const response = await fetch(
       "https://api.themoviedb.org/3/search/movie?query=" +
         movie +
@@ -39,17 +42,19 @@ const GPTSearchBar = () => {
 
     const result = await model.generateContent(prompt);
     const response = result.response;
-    console.log(response);
     const gptMovies = response.text().split(",");
     if (!gptMovies) return null;
-    console.log(gptMovies)
+    console.log("GPTMovies",gptMovies)
 
     //["movie1", "movie2", "movie3", "movie4"]
     const moviesPromise = gptMovies.map((movie) => searchMovieTMDB(movie));
 
-    //this moviesPromise will return array of promise [promise1, promise2...., promise5]
+    //this moviesPromise will return "array of promise" [promise1, promise2...., promise5]
     const tmdbResults = await Promise.all(moviesPromise);
     console.log("tmdbResults",tmdbResults);
+
+    //dispatch an action to add tmdbResults in Redux store
+    dispatch(addGPTMoviesResults({movieNames : gptMovies, movieResults : tmdbResults}))
 
   };
 
@@ -67,7 +72,7 @@ const GPTSearchBar = () => {
         ></input>
         <button
           onClick={handleGPTSearchClick}
-          className="p-3 m-2 rounded-xl bg-red-800 text-white"
+          className="p-3 m-2 rounded-xl bg-red-800 text-white hover:opacity-75"
         >
           {languageConstants[lang]?.search}
         </button>
