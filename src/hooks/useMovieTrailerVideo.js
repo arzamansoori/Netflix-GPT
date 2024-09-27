@@ -1,4 +1,4 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { API_OPTIONS } from "../utils/constants";
 import { addTrailerVideo } from "../redux/moviesSlice";
 import { useEffect } from "react";
@@ -7,6 +7,8 @@ import { useEffect } from "react";
 const useMovieTrailerVideo = (movieId) =>{
 
     const dispatch = useDispatch();
+
+    const trailerVideo = useSelector((store) => store.movies?.addTrailerVideo)
 
     //fetching the trailer and updating the store with trailer video data
     const getMovieTrailer = async () => {
@@ -28,7 +30,7 @@ const useMovieTrailerVideo = (movieId) =>{
     };
   
     useEffect(() => {
-      getMovieTrailer();
+      !trailerVideo && getMovieTrailer();
     // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 };
