@@ -4,9 +4,9 @@ import {bg_url} from "../utils/images"
 
 const GPTSearch = () => {
   return (
-    <div>
+    <div className="">
       <div className="fixed -z-10">
-        <img className="h-screen object-cover md:w-screen" src={bg_url} alt="backgoundImage" />
+        <img className="h-screen object-cover w-screen md:w-screen" src={bg_url} alt="backgoundImage" />
       </div>
       <GPTSearchBar />
       <GPTMovieSuggestions />

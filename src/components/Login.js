@@ -102,7 +102,7 @@ const Login = () => {
       <Header />
       <div className="flex flex-col items-center">
         <div className="absolute">
-          <img src={bg_url} alt="backgoundImage" />
+          <img src={bg_url} alt="backgoundImage" className="h-screen object-cover md:w-screen"/>
         </div>
         <div className="relative grid h-screen place-items-center">
           <div
