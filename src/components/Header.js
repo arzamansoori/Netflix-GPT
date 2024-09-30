@@ -64,7 +64,7 @@ const Header = () => {
   };
 
   return (
-    <div className="absolute mx-9 my-3 z-10 flex justify-between w-[-webkit-fill-available]">
+    <div className="absolute mx-9 my-3 z-10 flex flex-col items-center md:flex-row justify-between w-[-webkit-fill-available]">
       <img src={logo_url} alt="Netflix logo" className="w-56"></img>
       {user && (
         <div className="flex items-center mb-5">
@@ -81,7 +81,7 @@ const Header = () => {
           </select>)
           }
           <button
-            className="bg-red-800 p-2 font-semibold text-sm rounded-lg bg-opacity-90 text-white mr-3 hover:bg-opacity-75"
+            className="bg-red-800 p-1 font-semibold text-sm rounded-lg bg-opacity-90 text-white mr-3 hover:bg-opacity-75"
             //className="bg-white bg-opacity-30 text-white px-2 py-2 rounded-lg hover:bg-opacity-20   mr-3"
             onClick={handleGPTSearchClick}
           >

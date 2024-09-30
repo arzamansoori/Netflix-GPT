@@ -20,6 +20,8 @@
 - Update Profile of Redux store
 - Fetch from TMDB movies
 
+-Memoization for caching the result resulting in not frequent api calls.
+
 
 ## Live link for the project
 

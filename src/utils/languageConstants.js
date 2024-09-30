@@ -2,19 +2,19 @@
 const languageConstants = {
     en : {
         search : "Search",
-        gptSearchPlaceholder : "What would you like to watch today?",
+        gptSearchPlaceholder : "Need suggestion?",
         homePage : "Home Page",
         signOut : "(Sign Out)"
     },
     hindi : {
         search : "खोज",
-        gptSearchPlaceholder : "आज आप क्या देखना चाहेंगे?",
+        gptSearchPlaceholder : "सुझाव चाहिए?",
         homePage : "ब्राउज़",
         signOut : "(साइन आउट)"
     },
     spanish : {
         search : "Buscar",
-        gptSearchPlaceholder : "¿Qué te gustaría ver hoy?",
+        gptSearchPlaceholder : "¿Necesita sugerencia?",
         homePage : "volver a casa",
         signOut : "(desconectar)"
     }
